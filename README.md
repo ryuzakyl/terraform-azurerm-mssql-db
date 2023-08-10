@@ -1,5 +1,9 @@
 # Azure SQL Database Terraform Module
 
+> :eyes:
+>
+> **NOTE:** This module is 100% based on [kumarvna/terraform-azurerm-mssql-db](https://github.com/kumarvna/terraform-azurerm-mssql-db), but a few fixes and tweaks needed for personal use.
+
 Terraform module to create an MS SQL server with initial database, Azure AD login, Firewall rules, geo-replication using auto-failover groups, Private endpoints, and corresponding private DNS zone. It also supports creating a database with a custom SQL script initialization.
 
 A single database is the quickest and simplest deployment option for Azure SQL Database. You manage a single database within a SQL Database server, which is inside an Azure resource group in a specified Azure region with this module.
@@ -36,8 +40,8 @@ data "azurerm_log_analytics_workspace" "example" {
 }
 
 module "mssql-server" {
-  source  = "kumarvna/mssql-db/azurerm"
-  version = "1.3.0"
+  source  = "ryuzakyl/mssql-db/azurerm"
+  version = "1.3.2"
 
   # By default, this module will create a resource group
   # proivde a name to use an existing resource group and set the argument 
@@ -167,8 +171,8 @@ By default, this feature not enabled on this module. To create private link with
 
 ```terraform
 module "mssql-server" {
-  source  = "kumarvna/mssql-db/azurerm"
-  version = "1.3.0"
+  source  = "ryuzakyl/mssql-db/azurerm"
+  version = "1.3.2"
 
   # .... omitted
 
@@ -189,8 +193,8 @@ If you want to use eixsting VNet and Subnet to create a private endpoints, set a
 
 ```terraform
 module "mssql-server" {
-  source  = "kumarvna/mssql-db/azurerm"
-  version = "1.3.0"
+  source  = "ryuzakyl/mssql-db/azurerm"
+  version = "1.3.2"
 
   # .... omitted
 
@@ -217,8 +221,8 @@ Installation of the Microsoft `sqlcmd` utility on [Ubuntu](https://docs.microsof
 
 ```terraform
 module "mssql-server" {
-  source  = "kumarvna/mssql-db/azurerm"
-  version = "1.3.0"
+  source  = "ryuzakyl/mssql-db/azurerm"
+  version = "1.3.2"
 
   # .... omitted
 

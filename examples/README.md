@@ -1,5 +1,9 @@
 # Azure SQL Database Terraform Module
 
+> :eyes:
+>
+> **NOTE:** This module is 100% based on [kumarvna/terraform-azurerm-mssql-db](https://github.com/kumarvna/terraform-azurerm-mssql-db), but a few fixes and tweaks needed for personal use.
+
 Terraform module for Azure to create a MS SQL server with initial database, Azure AD login, Firewall rules, Failover Group, Private endpoint, and corresponding private DNS zone. It also supports creating a database with a custom SQL script initialization.
 
 ## Module Usage for:

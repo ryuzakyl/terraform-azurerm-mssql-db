@@ -9,8 +9,8 @@ data "azurerm_log_analytics_workspace" "example" {
 }
 
 module "mssql-server" {
-  source  = "kumarvna/mssql-db/azurerm"
-  version = "1.3.0"
+  source  = "ryuzakyl/mssql-db/azurerm"
+  version = "1.3.2"
 
   # By default, this module will create a resource group
   # proivde a name to use an existing resource group and set the argument 
