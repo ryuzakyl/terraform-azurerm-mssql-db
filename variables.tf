@@ -65,7 +65,7 @@ variable "sql_database_edition" {
 }
 
 variable "sqldb_service_objective_name" {
-  description = " The service objective name for the database"
+  description = "The service objective name for the database"
   default     = "S1"
 }
 

@@ -408,8 +408,9 @@ resource "azurerm_private_dns_a_record" "arecord2" {
 #------------------------------------------------------------------
 # azurerm monitoring diagnostics  - Default is "false" 
 #------------------------------------------------------------------
+
 resource "azurerm_monitor_diagnostic_setting" "extaudit" {
-  count                      = var.enable_log_monitoring == true && var.log_analytics_workspace_id != null ? 1 : 0
+  count                      = var.enable_log_monitoring == true ? 1 : 0
   name                       = lower("extaudit-${var.database_name}-diag")
   target_resource_id         = azurerm_sql_database.db.id
   log_analytics_workspace_id = var.log_analytics_workspace_id
