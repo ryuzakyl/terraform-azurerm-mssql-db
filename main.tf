@@ -90,6 +90,18 @@ resource "azurerm_sql_server" "primary" {
   }
 }
 
+resource "null_resource" "set_primary_backup_redundancy_type" {
+  triggers = {
+    always_run = timestamp()
+  }
+
+  provisioner "local-exec" {
+    command = "az sql db update --name ${var.database_name} --server ${azurerm_sql_server.primary.name} --resource-group ${var.resource_group_name} --backup-storage-redundancy ${var.db_storage_redundancy_type}"
+  }
+
+  depends_on = [azurerm_sql_server.primary]
+}
+
 resource "azurerm_mssql_server_extended_auditing_policy" "primary" {
   count                                   = var.enable_sql_server_extended_auditing_policy ? 1 : 0
   server_id                               = azurerm_sql_server.primary.id

@@ -14,6 +14,11 @@ variable "storage_account_name" {
   default     = null
 }
 
+variable "db_storage_redundancy_type" {
+  description = "Backup redundancy type for the database"
+  default     = null
+}
+
 variable "location" {
   description = "The location/region to keep all your network resources. To get the list of all locations with table format from azure cli, run 'az account list-locations -o table'"
   default     = ""
